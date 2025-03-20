@@ -2,13 +2,19 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, inputs, lib, pkgs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -16,20 +22,29 @@
 
   networking.hostName = "piupiu"; # Define your hostname.
   # Pick only one of the below networking options.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   nix = {
     registry = {
       self.flake = inputs.self;
-      nixpkgs = { from = { id = "nixpkgs"; type = "indirect"; }; flake = inputs.nixpkgs; };
+      nixpkgs = {
+        from = {
+          id = "nixpkgs";
+          type = "indirect";
+        };
+        flake = inputs.nixpkgs;
+      };
     };
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
     channel.enable = false;
     nixPath = [
-	"nixpkgs=${inputs.nixpkgs.outPath}";
+      "nixpkgs=${inputs.nixpkgs.outPath}"
     ];
   };
 
@@ -43,19 +58,17 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-  #   font = "Lat2-Terminus16";
+    #   font = "Lat2-Terminus16";
     keyMap = "pt";
-  #   useXkbConfig = true; # use xkb.options in tty.
+    #   useXkbConfig = true; # use xkb.options in tty.
   };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "pt";
@@ -78,10 +91,17 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiagoc = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" "video" "render" "networkmanager" "dialout" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     tree
-  #   ];
+    extraGroups = [
+      "wheel"
+      "input"
+      "video"
+      "render"
+      "networkmanager"
+      "dialout"
+    ]; # Enable ‘sudo’ for the user.
+    #   packages = with pkgs; [
+    #     tree
+    #   ];
   };
 
   # programs.firefox.enable = true;
@@ -90,7 +110,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
+    #   wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -137,4 +157,3 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-
