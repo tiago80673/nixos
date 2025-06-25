@@ -5,9 +5,15 @@
     flake-programs-sqlite = {
       # command-not-found
       url = "github:wamserma/flake-programs-sqlite";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+   nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -15,15 +21,45 @@
     inputs@{
       self,
       nixpkgs,
+	  nixpkgs-unstable,
       ...
     }:
+    let
+        nixpkgsConfig = {
+            allowUnfree = true;
+        };
+
+	desktopModules = [
+	inputs.home-manager.nixosModules.home-manager
+	{
+		home-manager.useGlobalPkgs = true;
+		home-manager.useUserPackages = true;
+	}
+	];
+
+
+  overlay-unstable = final: prev: {
+    unstable = import nixpkgs-unstable {
+      inherit (final) system;
+      config.allowUnfree = true;
+    };
+  };
+
+
+    in
     {
       nixosConfigurations.piupiu = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
           inputs.flake-programs-sqlite.nixosModules.programs-sqlite
-        ];
-        specialArgs = { inherit inputs; };
+          ({ config, pkgs, ... }: {
+            nixpkgs = {
+				config = nixpkgsConfig;
+				overlays = [ overlay-unstable ];
+			};
+          })
+        ] ++ desktopModules;
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     };

@@ -9,6 +9,7 @@
 }:
 
 {
+  powerManagement.cpuFreqGovernor="performance";
 
   boot.initrd.availableKernelModules = [
     "vmd"
@@ -25,6 +26,14 @@
   fileSystems."/" = {
     device = "rpool/root";
     fsType = "zfs";
+  };
+  
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-id/nvme-Micron_2400_MTFDKBA512QFM_232441A9B7B9-part1";
+    fsType = "vfat";
+    options = [
+      "umask=0077" # prevent /boot/loader/random-seed from being read
+    ];
   };
 
   fileSystems."/nix" = {
@@ -44,7 +53,7 @@
 
   swapDevices = [
     {
-      device = "/dev/by-id/nvme-Micron_2400_MTFDKBA512QFM_232441A9B7B9-part9";
+      device = "/dev/disk/by-id/nvme-Micron_2400_MTFDKBA512QFM_232441A9B7B9-part9";
       priority = 1;
     }
   ];
@@ -63,5 +72,6 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.enableRedistributableFirmware = true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
