@@ -75,3 +75,15 @@
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
+
+# ZFS Config setup //todo improve to use disko maybe?
+
+#sudo zpool create -O mountpoint=none -O atime=off -o ashift=12 -O acltype=posixacl -O xattr=sa -O compression=zstd -O dnodesize=auto -O normalization=formD rpool /dev/nvme0n1p7
+
+#sudo zfs create -o mountpoint=legacy rpool/root
+#sudo zfs create -o mountpoint=legacy rpool/nix
+#sudo zfs create -o mountpoint=legacy rpool/home
+#sudo zfs create -o mountpoint=legacy rpool/var
+
+#reason for mountpoints is because by deafult zfs mounts the fs, but we want to explicitly mount the files with the NixOS intended way
+
