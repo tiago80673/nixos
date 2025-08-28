@@ -53,7 +53,7 @@
 
   swapDevices = [
     {
-      device = "/dev/disk/by-id/nvme-Micron_2400_MTFDKBA512QFM_232441A9B7B9-part9";
+      device = "/dev/disk/by-id/nvme-Micron_2400_MTFDKBA512QFM_232441A9B7B9-part6";
       priority = 1;
     }
   ];
