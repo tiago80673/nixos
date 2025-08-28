@@ -17,7 +17,7 @@
     ./change-keyb-layout.nix
     ./modules/workstation/default.nix
     ./modules/graphical
-	./modules/wireguardRNL_NOTWORKING_TALK_TO_BREDA.nix
+	# ./modules/wireguardRNL_NOTWORKING_TALK_TO_BREDA.nix
   ];
   hardware.graphics.enable = true;
   # Use the systemd-boot EFI boot loader.
