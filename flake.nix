@@ -15,6 +15,10 @@
       url = "github:nix-community/nixvim/nixos-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =
@@ -22,6 +26,7 @@
       self,
       nixpkgs,
 	  nixpkgs-unstable,
+	  nur,
       ...
     }:
     let
@@ -53,6 +58,7 @@
         modules = [
           ./configuration.nix
           inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+		  nur.modules.nixos.default
           ({ config, pkgs, ... }: {
             nixpkgs = {
 				config = nixpkgsConfig;
