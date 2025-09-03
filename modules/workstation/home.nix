@@ -21,6 +21,7 @@
     home.stateVersion = "24.11";
     nix.registry = {
     	nixpkgs.flake = inputs.nixpkgs;
+		n.flake = inputs.nixpkgs; # alias for doing n#... instead of nixpkgs#...
     };
     programs.git = {
 	enable = true;
