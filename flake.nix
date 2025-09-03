@@ -58,6 +58,7 @@
         modules = [
           ./configuration.nix
           inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+		  # Adds the NUR overlay
 		  nur.modules.nixos.default
           ({ config, pkgs, ... }: {
             nixpkgs = {
