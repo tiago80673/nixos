@@ -87,6 +87,7 @@
 
 		"org/gnome/settings-daemon/plugins/media-keys" = {
 			play = [ "<Alt>space" ];
+	        custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
 		};
 		"org/gnome/shell/keybindings" = {
 			switch-to-application-1 = [ ];
@@ -100,7 +101,7 @@
 			switch-to-application-9 = [ ];
 		};
 		"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-          binding = "<Super>Return";
+		  binding = "<Shift><Super>Return";
           command = "kgx";
           name = "Launch terminal";
         };
