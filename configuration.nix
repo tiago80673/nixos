@@ -140,6 +140,7 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim 
+	gnome-extension-manager
 	wireguard-tools
 	shotcut
 	obs-studio

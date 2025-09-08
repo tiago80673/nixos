@@ -70,13 +70,24 @@
 		"org/gnome/desktop/wm/keybindings" = {
 			# activate-window-menu = [ "@as []" ]; # home manager is cleaner and hides this ugly syntax
 			activate-window-menu = [ ];
+		    move-to-workspace-1 = [ "<Super><Shift>1" ];
+		    move-to-workspace-2 = [ "<Super><Shift>2" ];
+		    move-to-workspace-3 = [ "<Super><Shift>3" ];
+		    move-to-workspace-4 = [ "<Super><Shift>4" ];
+		    move-to-workspace-5 = [ "<Super><Shift>5" ];
+		    move-to-workspace-6 = [ "<Super><Shift>6" ];
+		    move-to-workspace-7 = [ "<Super><Shift>7" ];
+		    move-to-workspace-8 = [ "<Super><Shift>8" ];
+		    move-to-workspace-9 = [ "<Super><Shift>9" ];
+		    move-to-workspace-10 = [ "<Super><Shift>0" ];
 		};
+	    "org/gnome/shell/extensions/space-bar/shortcuts" = {
+		   enable-move-to-workspace-shortcuts = true;
+	    };
+
 		"org/gnome/settings-daemon/plugins/media-keys" = {
 			play = [ "<Alt>space" ];
 		};
-		# "org/gnome/desktop/wm/keybindings" = {
-		# 	switch-to-workspace-2 = [ "<super>2"];
-		# };
 		"org/gnome/shell/keybindings" = {
 			switch-to-application-1 = [ ];
 			switch-to-application-2 = [ ];
