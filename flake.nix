@@ -50,9 +50,26 @@
     };
   };
 
+	overlay-myPkgs = final: prev: let
+	  dirs = builtins.attrNames (builtins.readDir "${self}/pkgs");
+	in
+	  builtins.listToAttrs (map (name: {
+		name = name;
+		value = final.callPackage (self + "/pkgs/${name}") {};
+	  }) dirs);
+
+	system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
 
     in
     {
+	  #expose custom pkgs in /pkgs as outputs
+	  packages.${system} = import ./pkgs { inherit pkgs; };
+
       nixosConfigurations.piupiu = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
@@ -63,7 +80,10 @@
           ({ config, pkgs, ... }: {
             nixpkgs = {
 				config = nixpkgsConfig;
-				overlays = [ overlay-unstable ];
+				overlays = [ 
+					overlay-unstable 
+					overlay-myPkgs
+							];
 			};
           })
         ] ++ desktopModules;
