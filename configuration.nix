@@ -146,6 +146,7 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	obs-studio
 	unstable.code-cursor
 	dconf2nix
+	dconf-watch-dump
 	ncspot
 	devenv
 	tree
