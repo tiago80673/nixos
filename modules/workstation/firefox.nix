@@ -8,6 +8,9 @@
 			settings = {
 				"browser.download.open_pdf_attachments_inline" = true; # avoid downloading
 				"toolkit.legacyUserProfileCustomizations.stylesheets" = true; # allow custom css
+				#remove swipe gestures
+			    "browser.gesture.swipe.left" = "cmd_scrollLeft";
+			    "browser.gesture.swipe.right" = "cmd_scrollRight";
 			};
 			userChrome = ''
 				/* Only show close button on the active tab */
