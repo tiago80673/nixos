@@ -131,6 +131,13 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	enable = true;
 	nix-direnv.enable = true;
   };
+
+
+  #enhanced man pages
+  documentation.dev.enable = true;
+  documentation.man.enable = true;
+  documentation.info.enable = true;
+  documentation.doc.enable = true;
 	
   environment.shellAliases = {
 		rb = "nixos-rebuild switch --use-remote-sudo";
@@ -140,6 +147,14 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim 
+	
+	#core
+	linux-manual
+	man-pages
+	man-pages-posix
+	htop
+
+	python313
 	gnome-extension-manager
 	wireguard-tools
 	shotcut
