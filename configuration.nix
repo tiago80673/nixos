@@ -54,7 +54,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/Lisbon";
+  #time.timeZone = "Europe/Lisbon"; managed by gnome dconf. this is very strict and doesn't allow override
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
