@@ -20,7 +20,12 @@
           show-screenshot-ui=["<Shift><Super>s"];
         };
 
-        "org/gnome/desktop/interface" = {
+	
+    "org/gnome/desktop/datetime" = {
+      automatic-timezone = true;
+    };
+
+	"org/gnome/desktop/interface" = {
 	  color-scheme="prefer-dark";
         };
 	"org/gnome/mutter" = {
