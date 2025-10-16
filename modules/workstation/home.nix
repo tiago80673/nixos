@@ -18,6 +18,11 @@
       source = config.lib.file.mkOutOfStoreSymlink "/home"; 
       target = "/home/tiagoc/.configA";
     };
+	home.file.".config/nixpkgs" = {
+		# source = "${config.home.homeDirectory}/nixos/dots/nixpkgs"; #better but idk why not working
+		source = ../../dots/.config/nixpkgs;
+		recursive = true;
+	};
     home.stateVersion = "24.11";
     nix.registry = {
     	nixpkgs.flake = inputs.nixpkgs;
