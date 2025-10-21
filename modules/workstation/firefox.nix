@@ -87,6 +87,17 @@
 				  definedAliases = [ "@ng" ];
 				};
 
+				homemanager-nix= {
+				  name = "Home-Manager";
+				  urls = [
+					{
+					  template = "https://home-manager-options.extranix.com/?query={searchTerms}";
+					}
+				  ];
+				  iconMapObj."16" = "https://home-manager-options.extranix.com/images/favicon.png";
+				  definedAliases = [ "@nh" ];
+				};
+
 			};
 			userChrome = ''
 				/* Only show close button on the active tab */
