@@ -76,6 +76,17 @@
 				  definedAliases = [ "@na" ];
 				};
 
+				github-nix = {
+				  name = "Github Nix";
+				  urls = [
+					{
+					  template = "https://github.com/search?q=language%3ANix+{searchTerms}&type=code";
+					}
+				  ];
+				  iconMapObj."16" = "https://search.nixos.org/favicon.png";
+				  definedAliases = [ "@ng" ];
+				};
+
 			};
 			userChrome = ''
 				/* Only show close button on the active tab */
