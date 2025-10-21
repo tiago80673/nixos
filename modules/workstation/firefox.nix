@@ -13,24 +13,17 @@
 			    "browser.gesture.swipe.right" = "cmd_scrollRight";
 			};
 			search.engines = {
-				# Assign aliases to internal engines
-				ddg.metaData.alias = "@d";
-				"policy-DuckDuckGo Lite".metaData.alias = "@l";
-				wikipedia.metaData.alias = "@w";
-				# don't hide this bullshit because sadly it's useful
-				google.metaData.alias = "@g";
-
 				# Add custom engines
 				wikipedia-ru = {
-				  name = "Wikipedia (ru)";
+				  name = "Wikipedia (pt)";
 				  urls = [
 					{
-					  template = "https://ru.wikipedia.org/w/index.php?search={searchTerms}";
+					  template = "https://pt.wikipedia.org/w/index.php?search={searchTerms}";
 					}
 				  ];
-				  iconMapObj."16" = "https://ru.wikipedia.org/favicon.ico";
+				  iconMapObj."16" = "https://pt.wikipedia.org/favicon.ico";
 
-				  definedAliases = [ "@wr" ];
+				  definedAliases = [ "@wp" ];
 				};
 
 				nixos-wiki = {
@@ -79,7 +72,7 @@
 					  template = "https://mynixos.com/search?q={searchTerms}";
 					}
 				  ];
-				  iconMapObj."16" = "https://mynixos.com/favicon.png";
+				  iconMapObj."16" = "https://mynixos.com/icon.svg";
 				  definedAliases = [ "@na" ];
 				};
 
