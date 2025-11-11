@@ -14,10 +14,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./change-keyb-layout.nix
+    ./pkgs/change-keyboard-layout-on-usb-event/change-keyb-layout.nix
     ./modules/workstation/default.nix
     ./modules/graphical
-	# ./modules/wireguardRNL_NOTWORKING_TALK_TO_BREDA.nix
   ];
   hardware.graphics.enable = true;
   # Use the systemd-boot EFI boot loader.
