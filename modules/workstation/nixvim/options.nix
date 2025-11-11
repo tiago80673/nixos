@@ -1,7 +1,7 @@
 {
 
 	programs.nixvim.opts = {
-    		updatetime = 100;
+		updatetime = 100;
 
 		number = true;
 		relativenumber = true;
@@ -11,6 +11,8 @@
 
 		undofile = true;
 		undodir = "/tmp//";
+	
+		foldlevel = 99; # open folds at startup
 	};
 
 }
