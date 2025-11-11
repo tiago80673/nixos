@@ -127,10 +127,6 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 ''; # allow vial detection
 
 
-  programs.direnv = {
-	enable = true;
-	nix-direnv.enable = true;
-  };
 
 
   #enhanced man pages

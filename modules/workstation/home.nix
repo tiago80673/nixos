@@ -15,6 +15,20 @@
 		./shell/zsh.nix
     ];
 
+	programs.direnv = {
+			enable = true;
+			nix-direnv.enable = true;
+			# silent = true;
+			config = {
+				global = {
+					# trying to disable prints, seems broken
+					log_filter="^$";
+					log_format = "-";
+					hide_env_diff = true;
+				};
+			};
+		};
+
     home.file."/home/tiagoc/.configA" = {
       source = config.lib.file.mkOutOfStoreSymlink "/home"; 
       target = "/home/tiagoc/.configA";
