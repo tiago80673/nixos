@@ -63,11 +63,18 @@
   
 	"org/gnome/Console" = {
 	  "custom-font" = "NotoSansM Nerd Font Mono 10";
+      audible-bell = false;
 	};
   
 		"org/gnome/desktop/peripherals/touchpad" = {
 		  "disable-while-typing" = false;
 		};
+
+		"org/gnome/desktop/peripherals/keyboard" = with lib.gvariant; {
+		  delay = mkUint32 200;
+		  repeat-interval = mkUint32 20;
+		};
+
 						
 		"org/gnome/desktop/sound" = {
 		  "allow-volume-above-100-percent" = true;
