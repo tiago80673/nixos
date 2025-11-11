@@ -7,7 +7,7 @@
     ./options.nix
     ./clipboard.nix
     ./colorscheme.nix
-#   ./keymaps.nix
+    ./keymaps.nix
     ./plugins
   ];
 
