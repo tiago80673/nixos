@@ -153,6 +153,10 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	man-pages-posix
 	htop
 
+	clang-tools
+	ripgrep
+	google-chrome
+	busybox
 	python313
 	gnome-extension-manager
 	wireguard-tools
@@ -168,6 +172,7 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	ffmpeg
 	obsidian
     git
+	gitFull
     waypipe
     vial
     fd

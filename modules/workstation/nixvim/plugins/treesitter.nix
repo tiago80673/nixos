@@ -13,6 +13,5 @@
       folding = true;
     };
 
-    # treesitter-context.enable = true;
   };
 }
