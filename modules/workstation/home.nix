@@ -12,6 +12,7 @@
 		./firefox.nix
 		./ncspot.nix
 		./gnome.nix
+		./shell/zsh.nix
     ];
 
     home.file."/home/tiagoc/.configA" = {

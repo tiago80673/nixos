@@ -138,6 +138,9 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
   documentation.man.enable = true;
   documentation.info.enable = true;
   documentation.doc.enable = true;
+
+	users.defaultUserShell = pkgs.zsh;
+	programs.zsh.enable = true;
 	
   environment.shellAliases = {
 		rb = "nixos-rebuild switch --use-remote-sudo";
