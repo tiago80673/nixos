@@ -98,6 +98,17 @@
 				  definedAliases = [ "@nh" ];
 				};
 
+				nvim-nix= {
+				  name = "NixVim";
+				  urls = [
+					{
+					  template = "https://nix-community.github.io/nixvim/plugins/copilot-lsp/index.html?search={searchTerms}";
+					}
+				  ];
+				  iconMapObj."16" = "https://nix-community.github.io/nixvim/favicon.png"; #TODO get better favicon
+				  definedAliases = [ "@nv" ];
+				};
+
 			};
 			userChrome = ''
 				/* Only show close button on the active tab */
