@@ -7,6 +7,7 @@
 	programs.gnome-shell.extensions = with pkgs.gnomeExtensions; [
 		{package = space-bar; }
 		{package = resource-monitor; }
+		{package = tiling-assistant; }
 	]; 
 
   dconf = {
