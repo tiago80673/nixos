@@ -1,9 +1,11 @@
+{nixvimPkgs, ...}:
 {
     imports = [
 	./lint.nix	
 	./lsp.nix
 	./treesitter.nix
 	./wilder.nix
+	./vimtex.nix
     ];
 
     programs.nixvim.plugins = {
