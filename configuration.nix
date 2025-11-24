@@ -67,6 +67,11 @@
     #   useXkbConfig = true; # use xkb.options in tty.
   };
 
+	environment.etc = {
+		"bluetooth/main.conf"	.source = lib.mkForce ./etc/bluetooth;
+	};
+	
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -93,6 +98,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 		
   
   virtualisation.docker.enable = true;
@@ -111,6 +118,7 @@
       "render"
       "networkmanager"
       "dialout"
+	  "libvirtd" # allow interaction with libvirt daemon that talks to qemu/kvm
     ];
     hashedPassword = "$y$j9T$wSVFQ9KXOcedSQ.rdH4E0/$QCmD7jMQN27WU5vFOKVnuaE1WmnFZrLFNhmz4noDZR0";
 
@@ -179,7 +187,6 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
     wl-clipboard
     wl-clipboard-x11
     vscode-fhs
-    #pkgs.rocmPackages.llvm.clang-tools-extra
     llvmPackages_19.clang-tools
     mpi
     gnumake
@@ -190,6 +197,7 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
     docker
     docker-compose
 	libreoffice-qt6
+	foliate	
   ];
 
 	# prefer ipv4 over ipv6, tries to fix problem related to ncspot

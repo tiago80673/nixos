@@ -1,0 +1,6 @@
+[General]
+ControllerMode=bredr
+
+[Policy]
+AutoEnable=true
+
