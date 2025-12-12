@@ -2,7 +2,7 @@
 	#Finder
 	programs.nixvim.plugins.telescope = {
 		enable = true;
-		extensions.file-browser.enable = true;
+		extensions.file-browser.enable = true; # "<leader>fe"
 		keymaps = {
 			"<leader>ff" = {
 				action = "find_files";
@@ -55,6 +55,10 @@
 			"<leader>f;" = {
 				action = "resume";
 			};
+			"<leader>fw" = {
+				action = "grep_string";
+			};
+			
 		};
 	};
 }
