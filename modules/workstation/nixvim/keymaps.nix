@@ -42,5 +42,13 @@
 			silent = true;
 		  };
 		}
+		{
+		  key = "<leader>ll";
+		  action = "<cmd>VimtexView<cr>";
+		  options = {
+			silent = true;
+			desc = "Scroll pdf viewer to current line (.tex files)";
+		  };
+		}
 	];	
 }
