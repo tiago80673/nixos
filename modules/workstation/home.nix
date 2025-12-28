@@ -28,6 +28,9 @@
 				};
 			};
 		};
+	home.packages = [
+				inputs.nixpkgs-for-stremio.legacyPackages.${pkgs.stdenv.hostPlatform.system}.stremio
+			];
 
     home.file."/home/tiagoc/.configA" = {
       source = config.lib.file.mkOutOfStoreSymlink "/home"; 

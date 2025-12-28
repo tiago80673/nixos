@@ -18,6 +18,12 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+	# qt5 has been flagged as unmaintained and insecure, so we must explicitly
+    # permit its usage to run Stremio. However, since insecure packages are not
+    # built by Hydra once marked with known vulnerabilities, we use a pinned,
+    # older nixpkgs revision from before that change. This ensures Hydra can
+    # provide prebuilt binaries, since building qt5 locally is too heavy.
+    nixpkgs-for-stremio.url = "nixpkgs/release-24.11";
   };
 
   outputs =
