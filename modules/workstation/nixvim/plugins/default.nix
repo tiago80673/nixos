@@ -39,7 +39,7 @@
 		# Highlight words and lines on the cursor
 		cursorline = {
 			enable = true;
-			cursorline.number = true;
+			settings.cursorline.number = true;
 		};
 		
 		# Bracket pairs alternating colors

@@ -76,8 +76,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "pt";
@@ -146,7 +146,7 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	programs.zsh.enable = true;
 	
   environment.shellAliases = {
-		rb = "nixos-rebuild switch --use-remote-sudo";
+		rb = "nixos-rebuild switch --sudo";
 		rbcd = "cd $(dirname $(realpath /etc/nixos/flake.nix))";
 	};
   # List packages installed in system profile. To search, run:
@@ -175,7 +175,6 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	ncspot
 	devenv
 	tree
-	stremio
 	ffmpeg
 	obsidian
     git
@@ -183,7 +182,6 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
     waypipe
     vial
     fd
-    whatsapp-for-linux
     wl-clipboard
     wl-clipboard-x11
     vscode-fhs

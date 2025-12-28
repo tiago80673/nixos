@@ -1,10 +1,11 @@
+{config, ...}:
 {
   # Commands and search suggestions 
   programs.nixvim.plugins.wilder = {
 		  enable = true;
-		  modes = [":" "/" "?"];
+		  settings.modes = [":" "/" "?"];
 		  #TODO this renderer is a bit buggy -> when rounded, squared layer appears bellow
-		  renderer = ''
+		  options.renderer = config.lib.nixvim.mkRaw ''
 			wilder.popupmenu_renderer(
 			  wilder.popupmenu_border_theme({
 				highlights = {

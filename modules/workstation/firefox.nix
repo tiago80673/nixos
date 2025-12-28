@@ -116,7 +116,7 @@
 					visibility: collapse !important;
 				}
 			'';
-			  extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+			  extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
 				# essencial extensions
 				tridactyl
 				bitwarden

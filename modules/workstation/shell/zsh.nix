@@ -18,7 +18,7 @@
 			enable = true;
 			theme = "";
 		};
-		initExtra = ''
+		initContent = ''
 		  autoload -U colors && colors
 
 		  # Show GitHub icon when in a git repo (requires Nerd Font)

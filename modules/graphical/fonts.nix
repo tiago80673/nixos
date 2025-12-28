@@ -1,7 +1,7 @@
 {pkgs, ...}:
 {
     fonts.packages = with pkgs; [
-	nerdfonts
+	nerd-fonts.noto
 
     ];
 

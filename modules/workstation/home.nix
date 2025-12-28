@@ -7,7 +7,7 @@
   home-manager.backupFileExtension = "hm-backup";
   home-manager.users.tiagoc = {config, ...}: {
     imports = [
-        inputs.nixvim.homeManagerModules.nixvim # just importing my nixvim flake input to my home-manager
+        inputs.nixvim.homeModules.nixvim # just importing my nixvim flake input to my home-manager
         ./nixvim
 		./firefox.nix
 		./ncspot.nix
@@ -45,8 +45,10 @@
     };
     programs.git = {
 	enable = true;
-	userEmail = "tiago.caixinha@tecnico.ulisboa.pt";
-	userName = "Tiago Caixinha";
+	settings.user = {
+	name = "Tiago Caixinha";
+	email = "tiago.caixinha@tecnico.ulisboa.pt";
+			};
     };
   }; 
 }

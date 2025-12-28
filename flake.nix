@@ -1,14 +1,9 @@
 {
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    flake-programs-sqlite = {
-      # command-not-found
-      url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
    nixvim = {
@@ -80,7 +75,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          inputs.flake-programs-sqlite.nixosModules.programs-sqlite
 		  # Adds the NUR overlay
 		  nur.modules.nixos.default
           ({ config, pkgs, ... }: {
