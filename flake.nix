@@ -10,10 +10,6 @@
       url = "github:nix-community/nixvim";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
-	esp-dev = {
-	  url = "github:mirrexagon/nixpkgs-esp-dev";
-      inputs.nixpkgs.follows = "nixpkgs";
-	};
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -32,7 +28,6 @@
       nixpkgs,
 	  nixpkgs-unstable,
 	  nur,
-	  esp-dev,
       ...
     }:
     let
@@ -55,7 +50,6 @@
       config.allowUnfree = true;
     };
   };
-	overlay-esp-dev = (import "${inputs.esp-dev}/overlay.nix");
 
 	overlay-myPkgs = final: prev: let
 	  dirs = builtins.attrNames (builtins.readDir "${self}/pkgs");
@@ -89,7 +83,6 @@
 				overlays = [ 
 					overlay-unstable 
 					overlay-myPkgs
-					overlay-esp-dev
 							];
 			};
           })
