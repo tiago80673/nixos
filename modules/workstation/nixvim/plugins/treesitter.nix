@@ -8,6 +8,7 @@
       settings = {
 		highlight.enable = true;
         indent.enable = true;
+		highlight.disable = [ "latex" ];
       };
       # Hide code in foldings and allow expanding
       folding.enable = true;
