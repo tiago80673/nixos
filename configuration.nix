@@ -149,6 +149,12 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 		rb = "nixos-rebuild switch --sudo";
 		rbcd = "cd $(dirname $(realpath /etc/nixos/flake.nix))";
 	};
+	
+  security.sudo.extraConfig = ''
+    Defaults        timestamp_timeout=-1
+  '';
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -160,7 +166,6 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	man-pages-posix
 	htop
 
-	clang-tools
 	ripgrep
 	google-chrome
 	busybox
