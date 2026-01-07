@@ -15,6 +15,14 @@
 		zathura #latex
 		texliveFull #latex
 	];
+
+	programs.zathura = {
+		enable = true;
+		options = {
+			selection-clipboard = "clipboard";
+		};
+	};
+
   programs.nixvim = {
     enable = true;
     enableMan = true;
