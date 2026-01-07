@@ -40,6 +40,9 @@
 	{
 		home-manager.useGlobalPkgs = true;
 		home-manager.useUserPackages = true;
+		# otherwise hm fails to write the configFile if a backup already exists
+		# happens with firefox
+		home-manager.overwriteBackup = true;
 	}
 	];
 
