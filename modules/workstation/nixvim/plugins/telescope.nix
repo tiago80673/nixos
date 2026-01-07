@@ -3,6 +3,20 @@
 	programs.nixvim.plugins.telescope = {
 		enable = true;
 		extensions.file-browser.enable = true; # "<leader>fe"
+		luaConfig.pre = ''
+		require("telescope").setup({
+			defaults = {
+				file_ignore_patterns = {
+					"^.git/",
+				},
+			},
+			pickers = {
+				find_files = {
+					hidden = true,
+				},
+			},
+		})
+			'';
 		keymaps = {
 			"<leader>ff" = {
 				action = "find_files";
