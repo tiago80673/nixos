@@ -7,7 +7,7 @@
 			viewer_options = [ "-sync" "-unique" ];
 			quickfix_open_on_warning = 0;
 		};
-		texLivePackage = pkgs.texliveFull;
+		texlivePackage = pkgs.texliveFull;
 
 	};
 }
