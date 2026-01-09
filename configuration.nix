@@ -98,6 +98,11 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+	#netbird
+	services.netbird.enable = true;
+	services.netbird.package = pkgs.unstable.netbird;
+	services.netbird.clients.default.autoStart = false; # netbird autoconnects to the last available connection automatically
+
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 		
