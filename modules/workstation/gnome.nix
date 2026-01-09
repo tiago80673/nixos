@@ -29,6 +29,11 @@
 	"org/gnome/desktop/interface" = {
 	  color-scheme="prefer-dark";
         };
+
+	"org/gnome/nautilus/preferences" = {
+		show-delete-permanently = true;
+	};
+
 	"org/gnome/mutter" = {
   	  dynamic-workspaces=true;
 	};
