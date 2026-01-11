@@ -2,21 +2,52 @@
 	#Finder
 	programs.nixvim.plugins.telescope = {
 		enable = true;
-		extensions.file-browser.enable = true; # "<leader>fe"
-		luaConfig.pre = ''
-		require("telescope").setup({
-			defaults = {
-				file_ignore_patterns = {
-					"^.git/",
-				},
-			},
+		extensions.file-browser = {
+			enable = true; # "<leader>fe"
+			settings = {
+				hidden = true;
+				respect_gitignore = false;
+			};
+		};
+		settings = {
 			pickers = {
 				find_files = {
-					hidden = true,
-				},
-			},
-		})
-			'';
+					hidden = true;
+				};
+			};
+			defaults = {
+				file_ignore_patterns = [
+					"^.git/"
+				];
+				mappings = let 
+					open_file_or_pdf = ''
+		function(prompt_bufnr)
+		  local actions = require("telescope.actions")
+		  local action_state = require("telescope.actions.state")
+
+		  local entry = action_state.get_selected_entry()
+		  actions.close(prompt_bufnr)
+
+		  local path = entry.path or entry.filename
+		  if not path then return end
+
+		  if path:match("%.pdf$") then
+			vim.fn.jobstart({ "zathura", path }, { detach = true })
+		  else
+			vim.cmd("edit " .. vim.fn.fnameescape(path))
+		  end
+		end
+					'';
+				in {
+					i = {
+						"<CR>".__raw = open_file_or_pdf;
+					};
+					n = {
+						"<CR>".__raw = open_file_or_pdf;
+					};
+				};
+			};
+		};
 		keymaps = {
 			"<leader>ff" = {
 				action = "find_files";
@@ -72,7 +103,7 @@
 			"<leader>fw" = {
 				action = "grep_string";
 			};
-			
+
 		};
 	};
 }
