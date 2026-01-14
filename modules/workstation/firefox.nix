@@ -14,7 +14,7 @@
 			};
 			search.engines = {
 				# Add custom engines
-				wikipedia-ru = {
+				wikipedia-pt = {
 				  name = "Wikipedia (pt)";
 				  urls = [
 					{
@@ -26,6 +26,19 @@
 				  definedAliases = [ "@wp" ];
 				};
 
+				youtube = {
+				  name = "Youtube";
+				  urls = [
+					{
+					  template = "https://www.youtube.com/results?search_query={searchTerms}";
+					}
+				  ];
+				  iconMapObj."16" = "https://www.youtube.com/s/desktop/abf9a709/img/favicon_32x32.png";
+
+				  definedAliases = [ "@y" ];
+				};
+
+				# NixOS
 				nixos-wiki = {
 				  name = "NixOS Wiki";
 				  urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
