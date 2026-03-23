@@ -5,10 +5,14 @@
       text = ["write_good"];
       markdown = ["write_good"];
       nix = ["nix"];
+	  make = ["checkmake"];
     };
     linters = {
       write_good = {
         cmd = "${pkgs.write-good}/bin/write-good";
+      };
+      checkmake  = {
+        cmd = "${pkgs.checkmake}/bin/checkmake";
       };
     };
 

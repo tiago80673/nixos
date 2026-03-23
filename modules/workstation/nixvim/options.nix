@@ -6,7 +6,7 @@
 		number = true;
 		relativenumber = true;
 
-		spell = true;
+		spell = false; #pretty annoying
 		spelllang = ["en" "pt"];
 
 		undofile = true;

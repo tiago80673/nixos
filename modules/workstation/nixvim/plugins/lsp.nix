@@ -55,6 +55,13 @@
 
 		texlab.enable = true; #latex
 
+		# Rust
+		rust_analyzer = {
+				enable = true;
+				installCargo = true;
+				installRustc = true;
+				installRustfmt = true;
+			};
 		
 		pyright.enable = true;
 

@@ -39,6 +39,7 @@
           set tabstop=4
           set softtabstop=4
           set shiftwidth=4
+		  set scrolloff=8
     '';
 	extraPackages = with pkgs; [
 		#.tex files need this in order to treesitter to work

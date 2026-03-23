@@ -119,15 +119,17 @@
 		};
 
 
-		#Fully featured file explorer.
-        chadtree.enable = true;
-
 		#keybinds surrounding
 		mini-surround.enable = true;
 
 		notify.enable = true;
 
 		diffview.enable = true;
+
+		render-markdown.enable = true;
+
+		auto-session.enable = true;
+
 
 	};
 

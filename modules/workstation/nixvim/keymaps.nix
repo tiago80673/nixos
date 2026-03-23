@@ -1,5 +1,14 @@
+#https://www.lazyvim.org/keymaps#general good to take reference keybinds and avoid conflicts
 {
 	programs.nixvim.keymaps = [
+		{
+		  key = "<leader>cf";
+		  action = "<cmd>lua vim.lsp.buf.format()<cr>";
+		  options = {
+			silent = false;
+			desc = "Format buffer";
+		  };
+		}
 		{
 		  key = "<leader>df";
 		  action = "<cmd>lua vim.lsp.buf.code_action()<cr>";
