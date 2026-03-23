@@ -7,6 +7,7 @@
 	./wilder.nix
 	./vimtex.nix
 	./telescope.nix
+	./firenvim.nix
     ];
 
     programs.nixvim.plugins = {
