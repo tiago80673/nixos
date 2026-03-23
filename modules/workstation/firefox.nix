@@ -11,6 +11,10 @@
 				#remove swipe gestures
 			    "browser.gesture.swipe.left" = "cmd_scrollLeft";
 			    "browser.gesture.swipe.right" = "cmd_scrollRight";
+				#condense ui
+				"browser.uidensity" = 1;
+				# Bookmarks are built in to sideberry
+				"browser.toolbars.bookmarks.visibility" = "never";
 			};
 			search.engines = {
 				# Add custom engines
@@ -127,6 +131,15 @@
 				/* Only show close button on the active tab */
 				.tabbrowser-tab:not([selected]) .tab-close-button {
 					visibility: collapse !important;
+				}
+
+				/* Hide tabs bar, sideberry setup*/
+				#TabsToolbar {
+					visibility: collapse;
+				}
+				/* Remove extra space above content I think this is not doing shit */
+				#navigator-toolbox {
+				  border-bottom: none !important;
 				}
 			'';
 			  extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
