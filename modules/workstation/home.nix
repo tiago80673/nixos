@@ -13,6 +13,7 @@
 		./ncspot.nix
 		./gnome.nix
 		./shell/zsh.nix
+		./hyprland
     ];
 
 	programs.direnv = {

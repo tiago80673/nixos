@@ -29,6 +29,8 @@
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
+	programs.hyprland.enable = true;
+
   nix = {
     registry = {
       self.flake = inputs.self;
@@ -206,6 +208,8 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
     docker-compose
 	libreoffice-qt6
 	foliate	
+	unstable.antigravity-fhs
+	#hyprland, should move this elsewhere
   ];
 
 	# prefer ipv4 over ipv6, tries to fix problem related to ncspot
