@@ -18,6 +18,32 @@
 			enable = true;
 			theme = "";
 		};
+		
+		siteFunctions.unnix = ''
+  local file="$1"
+
+  if [ -z "$file" ]; then
+	echo "Usage: unnix <file>"
+	return 1
+  fi
+
+  if [ ! -f "$file" ]; then
+	echo "Error: file does not exist"
+	return 1
+  fi
+
+  local tmp="''${file}.tmp.$$"
+
+  cp "$file" "$tmp" &&
+  chmod u+w "$tmp" &&
+  mv "$tmp" "$file" &&
+
+  echo "Now editable: $file"
+		'';
+
+
+
+
 		initContent = ''
 		  autoload -U colors && colors
 
