@@ -10,6 +10,12 @@
 		  };
 		}
 		{
+			mode = "n";
+			key = "<leader>e";
+			action = "<cmd>lua vim.diagnostic.open_float()<cr>";
+			options.silent = true;
+		}
+		{
 		  key = "<leader>df";
 		  action = "<cmd>lua vim.lsp.buf.code_action()<cr>";
 		  options = {

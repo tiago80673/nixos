@@ -13,7 +13,6 @@
 	      diagnostic = {
 		"<C-p>" = "goto_prev";
 		"<C-ç>" = "goto_next";
-		"<leader>e" = "open_float";
 	      };
 
 	      lspBuf = {
