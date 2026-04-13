@@ -18,6 +18,10 @@
 			enable = true;
 			theme = "";
 		};
+
+		shellAliases = {
+			zathura = "zathura --fork";
+		};
 		
 		siteFunctions.unnix = ''
   local file="$1"
