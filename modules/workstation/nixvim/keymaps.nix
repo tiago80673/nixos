@@ -83,5 +83,14 @@
 				desc = "Diff: put hunk to other window";
 			};
 		}
+		{
+			mode = "n";
+			key = "hp";
+			action = "<cmd>Gitsigns preview_hunk_inline<cr>";
+			options = {
+				silent = true;
+				desc = "Diff: put hunk to other window";
+			};
+		}
 	];	
 }

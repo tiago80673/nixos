@@ -104,6 +104,9 @@
 			"<leader>fw" = {
 				action = "grep_string";
 			};
+			"<leader>fm" = {
+				action = "marks";
+			};
 
 		};
 	};
