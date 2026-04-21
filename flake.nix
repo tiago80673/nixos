@@ -40,9 +40,6 @@
 	{
 		home-manager.useGlobalPkgs = true;
 		home-manager.useUserPackages = true;
-		# otherwise hm fails to write the configFile if a backup already exists
-		# happens with firefox
-		home-manager.overwriteBackup = true;
 	}
 	];
 
@@ -55,12 +52,13 @@
   };
 
 	overlay-myPkgs = final: prev: let
-	  dirs = builtins.attrNames (builtins.readDir "${self}/pkgs");
+	  contents = builtins.readDir "${self}/pkgs";
+	  pkgDirs = builtins.filter (name: contents.${name} == "directory") (builtins.attrNames contents);
 	in
 	  builtins.listToAttrs (map (name: {
-		name = name;
+		inherit name;
 		value = final.callPackage (self + "/pkgs/${name}") {};
-	  }) dirs);
+	  }) pkgDirs);
 
 	system = "x86_64-linux";
     pkgs = import nixpkgs {

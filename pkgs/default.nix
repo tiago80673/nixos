@@ -1,6 +1,9 @@
 { pkgs }:
-{
-  dconf-watch-dump = import ./dconf-watch-dump { inherit pkgs; };
-  #TODO auto import all folders or disable this, why do I need it?
-}
-
+let
+  contents = builtins.readDir ./.;
+  pkgDirs = builtins.filter (name: contents.${name} == "directory") (builtins.attrNames contents);
+in
+builtins.listToAttrs (map (name: {
+  inherit name;
+  value = pkgs.callPackage (./. + "/${name}") {};
+}) pkgDirs)

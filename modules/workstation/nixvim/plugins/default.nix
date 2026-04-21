@@ -1,4 +1,4 @@
-{nixvimPkgs, ...}:
+{...}:
 {
     imports = [
 	./lint.nix	

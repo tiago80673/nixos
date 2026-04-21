@@ -19,34 +19,6 @@
 				file_ignore_patterns = [
 					"^.git/"
 				];
-		# TODO this is breaking telescope commands and telescope FE
-		# 		mappings = let 
-		# 			open_file_or_pdf = ''
-		# function(prompt_bufnr)
-		#   local actions = require("telescope.actions")
-		#   local action_state = require("telescope.actions.state")
-		#
-		#   local entry = action_state.get_selected_entry()
-		#   actions.close(prompt_bufnr)
-		#
-		#   local path = entry.path or entry.filename
-		#   if not path then return end
-		#
-		#   if path:match("%.pdf$") then
-		# 	vim.fn.jobstart({ "zathura", path }, { detach = true })
-		#   else
-		# 	vim.cmd("edit " .. vim.fn.fnameescape(path))
-		#   end
-		# end
-		# 			'';
-		# 		in {
-		# 			i = {
-		# 				"<CR>".__raw = open_file_or_pdf;
-		# 			};
-		# 			n = {
-		# 				"<CR>".__raw = open_file_or_pdf;
-		# 			};
-		# 		};
 			};
 		};
 		keymaps = {

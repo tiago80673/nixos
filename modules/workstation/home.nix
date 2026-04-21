@@ -30,13 +30,11 @@
 			};
 		};
 	home.packages = [
-				inputs.nixpkgs-for-stremio.legacyPackages.${pkgs.stdenv.hostPlatform.system}.stremio
-			];
+		inputs.nixpkgs-for-stremio.legacyPackages.${pkgs.stdenv.hostPlatform.system}.stremio
+		pkgs.unstable.code-cursor
+		pkgs.unstable.antigravity-fhs
+	];
 
-    home.file."/home/tiagoc/.configA" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home"; 
-      target = "/home/tiagoc/.configA";
-    };
 	home.file.".config/nixpkgs" = {
 		# source = "${config.home.homeDirectory}/nixos/dots/nixpkgs"; #better but idk why not working
 		source = ../../dots/.config/nixpkgs;
@@ -49,10 +47,8 @@
     };
     programs.git = {
 	enable = true;
-	settings.user = {
-	name = "Tiago Caixinha";
-	email = "tiago.caixinha@tecnico.ulisboa.pt";
-			};
+	userName = "Tiago Caixinha";
+	userEmail = "tiago.caixinha@tecnico.ulisboa.pt";
     };
   }; 
 }

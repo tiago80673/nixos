@@ -14,9 +14,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./pkgs/change-keyboard-layout-on-usb-event/change-keyb-layout.nix
     ./modules/workstation/default.nix
     ./modules/graphical
+    ./modules/peripherals
   ];
   hardware.graphics.enable = true;
   # Use the systemd-boot EFI boot loader.
@@ -28,8 +28,6 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-
-	programs.hyprland.enable = true;
 
   nix = {
     registry = {
@@ -69,10 +67,6 @@
     #   useXkbConfig = true; # use xkb.options in tty.
   };
 
-	environment.etc = {
-		"bluetooth/main.conf"	.source = lib.mkForce ./etc/bluetooth;
-	};
-	
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -181,7 +175,6 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	wireguard-tools
 	shotcut
 	obs-studio
-	unstable.code-cursor
 	dconf2nix
 	dconf-watch-dump
 	ncspot
@@ -207,13 +200,13 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
     docker
     docker-compose
 	libreoffice-qt6
-	foliate	
-	unstable.antigravity-fhs
-	#hyprland, should move this elsewhere
+	foliate
   ];
 
-	# prefer ipv4 over ipv6, tries to fix problem related to ncspot
 	environment.etc = {
+	  "bluetooth/main.conf".source = lib.mkForce ./etc/bluetooth;
+
+	  # prefer ipv4 over ipv6, tries to fix problem related to ncspot
 	  "gai.conf" = {
 		text = ''
 		  precedence ::ffff:0:0/96  100

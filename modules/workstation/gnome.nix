@@ -8,14 +8,7 @@
 		{package = space-bar; }
 		{package = resource-monitor; }
 		{package = tiling-assistant; }
-	]; 
-	xdg.portal = { # bridge between apps and the DE
-		enable = true;
-		extraPortals = with pkgs; [
-			xdg-desktop-portal-gnome
-			xdg-desktop-portal-hyprland # should not be here 
-		];
-	};
+	];
 
   dconf = {
     enable=true;

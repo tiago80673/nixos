@@ -63,8 +63,6 @@
 
 		  # Optional: show current branch name on the right in bold cyan
 		  RPROMPT='%B%F{cyan}$(git rev-parse --abbrev-ref HEAD 2>/dev/null)%f%b'
-
-		  [[ -n $CMD ]] && eval "$CMD"
 		'';
 	};
 }

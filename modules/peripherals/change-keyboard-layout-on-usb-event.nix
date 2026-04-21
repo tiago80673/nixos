@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   script = pkgs.writeShellScript "change-gnome-keyboard-layout-script" ''
@@ -13,4 +13,3 @@ in
   '';
 }
 
-#ACTION=="remove", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="444e", ATTRS{idProduct}=="1407", RUN+="${script} pt"

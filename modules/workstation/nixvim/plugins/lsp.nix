@@ -65,11 +65,6 @@
 		pyright.enable = true;
 
 		nil_ls.enable = true; # Nix
-#		nil_ls = {
-			#enable = true;
-#			settings.formatting.command = ["alejandra"];
-#			};
-
 		};
 	};
 }
