@@ -69,9 +69,6 @@
     #   useXkbConfig = true; # use xkb.options in tty.
   };
 
-	environment.etc = {
-		"bluetooth/main.conf"	.source = lib.mkForce ./etc/bluetooth;
-	};
 	
 
   # Enable the X11 windowing system.
@@ -92,10 +89,31 @@
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
+  hardware.bluetooth = {
+		enable = true;
+		settings = {
+			General = {
+				ControllerMode = "bredr";
+				Experimental = true;
+			};
+			Policy = {
+				AutoEnable = true;
+			};
+		};
+	};
   services.pipewire = {
     enable = true;
-    pulse.enable = true;
-  };
+    pulse.enable = true; #emulate pulse in pipewire for backwards compatibility
+	alsa.enable = true;
+	alsa.support32Bit = true;
+	wireplumber.enable = true;
+		extraConfig.pipewire."90-bluetooth-policy" = {
+			"context.properties" = {
+				"bluez5.roles" = [ "a2dp_sink" "a2dp_source" ];
+			};
+		};
+
+	};
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -126,6 +144,7 @@
       "networkmanager"
       "dialout"
 	  "libvirtd" # allow interaction with libvirt daemon that talks to qemu/kvm
+		"audio"
     ];
     hashedPassword = "$y$j9T$wSVFQ9KXOcedSQ.rdH4E0/$QCmD7jMQN27WU5vFOKVnuaE1WmnFZrLFNhmz4noDZR0";
 
