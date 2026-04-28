@@ -1,13 +1,14 @@
 
-
-Signed-off-by: Tiago Caixinha <@gmail.com>
-# <type>[optional scope]: <description>                                  (not more than 72 chars)
+# type(optional scope): description                                      (not more than 72 chars)
 # <BLANK NEWLINE>
 # [optional body]                                                        (not more than 72 chars)
 # <BLANK NEWLINE>
 # [optional footer(s)]                                                   (not more than 72 chars)
+
+# Signed-off-by: Tiago Caixinha <@gmail.com>
 #-------------------------------EXAMPLE----------------------------------
 # feat!(frontend): new button added in dashboard
+# feat(nixvim): add telescope marks and inline git diff
 #
 # A new "Follow Us" button is added in your Account dashboard.
 # If you don't see it, please delete your browser cache and reload the
