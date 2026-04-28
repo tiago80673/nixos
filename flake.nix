@@ -20,6 +20,9 @@
     # older nixpkgs revision from before that change. This ensures Hydra can
     # provide prebuilt binaries, since building qt5 locally is too heavy.
     nixpkgs-for-stremio.url = "nixpkgs/release-24.11";
+
+	nix-index-database.url = "github:nix-community/nix-index-database";
+	nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 	nix-flatpak = {
 			url = "github:gmodena/nix-flatpak/?ref=latest";
 			# inputs.nixpkgs.follows = "nixpkgs"; # how doesnt flatkpak have nixpkgs to override?
@@ -49,15 +52,17 @@
 		# happens with firefox
 		home-manager.overwriteBackup = true;
 	}
+	inputs.nix-index-database.nixosModules.default
 	];
 
+	pkgsUnstable = import nixpkgs-unstable {
+		inherit system;
+		config.allowUnfree = true;
 
-  overlay-unstable = final: prev: {
-    unstable = import nixpkgs-unstable {
-      inherit (final) system;
-      config.allowUnfree = true;
-    };
-  };
+	};
+	overlay-unstable = final: prev: {
+		unstable = pkgsUnstable;
+	};
 
 	overlay-myPkgs = final: prev: let
 	  dirs = builtins.attrNames (builtins.readDir "${self}/pkgs");

@@ -47,6 +47,8 @@
         "nix-command"
         "flakes"
       ];
+	#helps to speed up evaluation
+	eval-cache = true;
     };
     channel.enable = false;
     nixPath = [
@@ -163,16 +165,23 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 
 
   #enhanced man pages
-  documentation.dev.enable = true;
-  documentation.man.enable = true;
-  documentation.info.enable = true;
-  documentation.doc.enable = true;
+  # change to use the lazy evaluation of man pages
+  # documentation.dev.enable = true;
+  # documentation.man.enable = true;
+  # documentation.info.enable = true;
+  # documentation.doc.enable = true;
 
 	users.defaultUserShell = pkgs.zsh;
 	programs.zsh.enable = true;
 	
+	programs.nh = {
+		enable = true;
+		flake = "/home/tiagoc/nixos"; #ew hardcoded path, make this better
+	};
+
   environment.shellAliases = {
-		rb = "nixos-rebuild switch --sudo";
+		rb = "sudo -v; nixos-rebuild switch --sudo";
+		rbn = "sudo -v; nh os switch";
 		rbcd = "cd $(dirname $(realpath /etc/nixos/flake.nix))";
 	};
 	
