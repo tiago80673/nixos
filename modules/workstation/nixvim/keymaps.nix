@@ -85,7 +85,7 @@
 		}
 		{
 			mode = "n";
-			key = "hp";
+			key = "<leader>hp";
 			action = "<cmd>Gitsigns preview_hunk_inline<cr>";
 			options = {
 				silent = true;
