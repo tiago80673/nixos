@@ -14,6 +14,7 @@
 		./gnome.nix
 		./shell/zsh.nix
 		./hyprland
+		./kitty.nix
     ];
 
 	programs.direnv = {
