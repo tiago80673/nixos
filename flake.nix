@@ -20,6 +20,10 @@
     # older nixpkgs revision from before that change. This ensures Hydra can
     # provide prebuilt binaries, since building qt5 locally is too heavy.
     nixpkgs-for-stremio.url = "nixpkgs/release-24.11";
+	nix-flatpak = {
+			url = "github:gmodena/nix-flatpak/?ref=latest";
+			# inputs.nixpkgs.follows = "nixpkgs"; # how doesnt flatkpak have nixpkgs to override?
+		};
   };
 
   outputs =
@@ -28,6 +32,7 @@
       nixpkgs,
 	  nixpkgs-unstable,
 	  nur,
+	  nix-flatpak,
       ...
     }:
     let
@@ -80,6 +85,7 @@
           ./configuration.nix
 		  # Adds the NUR overlay
 		  nur.modules.nixos.default
+		  nix-flatpak.nixosModules.nix-flatpak
           ({ config, pkgs, ... }: {
             nixpkgs = {
 				config = nixpkgsConfig;
