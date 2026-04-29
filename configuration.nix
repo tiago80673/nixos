@@ -5,7 +5,6 @@
 {
   #config,
   inputs,
-  lib,
   pkgs,
   ...
 }:
@@ -17,6 +16,7 @@
     ./pkgs/change-keyboard-layout-on-usb-event/change-keyb-layout.nix
     ./modules/workstation/default.nix
     ./modules/graphical
+	# ./specialisations.nix
   ];
   hardware.graphics.enable = true;
   # Use the systemd-boot EFI boot loader.
