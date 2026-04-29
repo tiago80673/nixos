@@ -27,7 +27,12 @@
   networking.hostName = "piupiu"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+	networking.networkmanager = {
+		enable = true; # Easiest to use and most distros use this by default.
+		plugins = with pkgs; [
+			networkmanager-openvpn
+		];
+	};
 
 	programs.hyprland.enable = true;
 
@@ -129,7 +134,14 @@
   programs.virt-manager.enable = true;
 		
   
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+		enable = true;
+		enableOnBoot = false;
+		# rootless = { # openwhisk isnt working ootb with rootless. maybe we could run both dockers
+		# 	enable = true;
+		# 	setSocketVariable = true;
+		# };
+	};
 
   users.mutableUsers = false; # usefull anyways but I needed this to allow gnome login to have list of users instead of typing each time the user
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -203,7 +215,8 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 
 	ripgrep
 	google-chrome
-	busybox
+	usbutils
+	unzip
 	python313
 	gnome-extension-manager
 	wireguard-tools
@@ -217,7 +230,6 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	tree
 	ffmpeg
 	obsidian
-    git
 	gitFull
     waypipe
     vial
@@ -238,7 +250,29 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	foliate	
 	unstable.antigravity-fhs
 	#hyprland, should move this elsewhere
+	kitty
+	waybar
+	wofi
+	dunst
+	grim
+	slurp
+	pamixer
+	numactl
+	file	
+	anydesk
   ];
+	virtualisation.waydroid.enable = true;
+
+	services.grafana = {
+		enable = false;
+		settings = {
+			server = {
+				http_addr = "127.0.0.1";
+				http_port = 3000;
+				enable_gzip = true;
+			};
+		};
+	};
 
 	# prefer ipv4 over ipv6, tries to fix problem related to ncspot
 	environment.etc = {
