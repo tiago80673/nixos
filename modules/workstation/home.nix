@@ -14,7 +14,7 @@
 		./gnome.nix
 		./shell/zsh.nix
 		./hyprland
-		./kitty.nix
+		./kitty/kitty.nix
     ];
 
 	programs.direnv = {
@@ -34,10 +34,6 @@
 				inputs.nixpkgs-for-stremio.legacyPackages.${pkgs.stdenv.hostPlatform.system}.stremio
 			];
 
-    home.file."/home/tiagoc/.configA" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home"; 
-      target = "/home/tiagoc/.configA";
-    };
 	home.file.".config/nixpkgs" = {
 		# source = "${config.home.homeDirectory}/nixos/dots/nixpkgs"; #better but idk why not working
 		source = ../../dots/.config/nixpkgs;

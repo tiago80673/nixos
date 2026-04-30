@@ -1,8 +1,14 @@
-{pkgs, ...}:
+{pkgs, lib, config, ...}:
 {
 	home.packages = with pkgs; [
 		nerd-fonts.jetbrains-mono
 	];
+
+	home.file.".config/kitty/which-key.py" = {
+		source = ./which-key.py;
+		executable = true;
+	};
+
 	programs.kitty = {
 		enable = true;
 
@@ -27,5 +33,16 @@
 
 			window_padding_width = 6;
 		};
+
+		keybindings = 
+			let 
+				bindWithModifier = lib.mapAttrs' (key: lib.nameValuePair ("ctrl+shift+" + key));
+			in
+				bindWithModifier {
+					"t" = "new_tab_with_cwd";
+					"enter" = "new_window_with_cwd";
+					"f1" = "kitten ${config.home.homeDirectory}/.config/kitty/which-key.py";
+					"x" = "toggle_layout stack";
+				};
 	};
 }
