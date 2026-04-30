@@ -8,6 +8,8 @@
 	./vimtex.nix
 	./telescope.nix
 	./firenvim.nix
+	# ./luasnip
+	./extraPlugins.nix
     ];
 
     programs.nixvim.plugins = {
@@ -33,6 +35,8 @@
 
         # Add open files at the top
         bufferline.enable = true;
+
+		gitlinker.enable = true;
 
 		# Dependency of various plugins 
 		web-devicons.enable = true;

@@ -70,6 +70,13 @@
 #			settings.formatting.command = ["alejandra"];
 #			};
 
+		lua_ls.enable = true;
+
+		ts_ls.enable = true;
+
+		metals.enable = true; # scala
+
+
 		};
 	};
 }
