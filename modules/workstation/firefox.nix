@@ -42,6 +42,18 @@
 				  definedAliases = [ "@y" ];
 				};
 
+				web-archive = {
+				  name = "Wayback Machine";
+				  urls = [
+					{
+					  template = "http://web.archive.org/web/{searchTerms}";
+					}
+				  ];
+				  iconMapObj."32" = "https://web-static.archive.org/_static/images/archive.ico";
+
+				  definedAliases = [ "@wa" ];
+				};
+
 				# NixOS
 				nixos-wiki = {
 				  name = "NixOS Wiki";
