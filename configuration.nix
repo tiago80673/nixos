@@ -153,6 +153,7 @@
       "wheel"
 	  #"docker" unsafe to be in docker group, just use sudo every time instead. There is a know privilege escalation by launching containers with special perms
       "input"
+      "uinput" #required by xremap
       "video"
       "render"
       "networkmanager"

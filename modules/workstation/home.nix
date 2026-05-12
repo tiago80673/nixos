@@ -7,8 +7,8 @@
   home-manager.backupFileExtension = "hm-backup";
   home-manager.users.tiagoc = {config, ...}: {
     imports = [
-        inputs.nixvim.homeModules.nixvim # just importing my nixvim flake input to my home-manager
-        ./nixvim
+        inputs.nixvim.homeModules.nixvim # importing nixvim options inside hm
+        ./nixvim # configuring those options
 		./firefox.nix
 		./ncspot.nix
 		./gnome.nix

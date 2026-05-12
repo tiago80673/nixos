@@ -25,8 +25,9 @@
 	nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 	nix-flatpak = {
 			url = "github:gmodena/nix-flatpak/?ref=latest";
-			# inputs.nixpkgs.follows = "nixpkgs"; # how doesnt flatkpak have nixpkgs to override?
+			# inputs.nixpkgs.follows = "nixpkgs"; # flatkpak doesnt have nixpkgs so override fails. but how could flatkpak not have nixpkgs?
 		};
+	xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs =
