@@ -43,6 +43,7 @@
     nix.registry = {
     	nixpkgs.flake = inputs.nixpkgs;
 		n.flake = inputs.nixpkgs; # alias for doing n#... instead of nixpkgs#...
+		nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
     };
     programs.git = {
 	enable = true;
