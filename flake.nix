@@ -21,6 +21,8 @@
     # provide prebuilt binaries, since building qt5 locally is too heavy.
     nixpkgs-for-stremio.url = "nixpkgs/release-24.11";
 
+	claude-code.url = "github:sadjow/claude-code-nix";
+
 	nix-index-database.url = "github:nix-community/nix-index-database";
 	nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 	nix-flatpak = {
@@ -86,7 +88,7 @@
 	  packages.${system} = import ./pkgs { inherit pkgs; };
 
       nixosConfigurations.piupiu = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs system; };
         modules = [
           ./configuration.nix
 		  # Adds the NUR overlay

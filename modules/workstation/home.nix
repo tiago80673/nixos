@@ -1,6 +1,7 @@
 {
   inputs, 
   pkgs,
+  system,
   ...
 }:
 {
@@ -31,7 +32,10 @@
 			};
 		};
 	home.packages = [
-				inputs.nixpkgs-for-stremio.legacyPackages.${pkgs.stdenv.hostPlatform.system}.stremio
+				# inputs.nixpkgs-for-stremio.legacyPackages.${pkgs.stdenv.hostPlatform.system}.stremio
+				# pkgs.unstable.stremio-linux-shell
+				pkgs.vlc
+				inputs.claude-code.packages.${system}.default
 			];
 
 	home.file.".config/nixpkgs" = {

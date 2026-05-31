@@ -228,6 +228,7 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 	shotcut
 	obs-studio
 	unstable.code-cursor
+	stremio-linux-shell
 	dconf2nix
 	dconf-watch-dump
 	ncspot
