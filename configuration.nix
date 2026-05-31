@@ -23,12 +23,16 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  networking.nameservers = ["1.1.1.1" "1.0.0.1"];
+  networking.resolvconf.dnsSingleRequest = true;
   networking.hostId = "72fc596a";
   networking.hostName = "piupiu"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 	networking.networkmanager = {
 		enable = true; # Easiest to use and most distros use this by default.
+		# dont override our nameservers
+		dns = "none";
 		plugins = with pkgs; [
 			networkmanager-openvpn
 		];
@@ -275,7 +279,7 @@ KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="
 		};
 	};
 
-	# prefer ipv4 over ipv6, tries to fix problem related to ncspot
+	# when both available, tell getaddrinfo() to prefer ipv4 over ipv6
 	environment.etc = {
 	  "gai.conf" = {
 		text = ''
